@@ -53,6 +53,9 @@ class App extends Component {
     });
   };
   saveTasks = () => {
+    if (!this.props.onChange) {
+      return;
+    }
     this.props.onChange(this.state.tasks.map(task => task.value).slice(0, this.state.tasks.length - 1))
   }
   addNewTask = () => {
